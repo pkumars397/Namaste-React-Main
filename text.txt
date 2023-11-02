@@ -1,0 +1,19 @@
+/* Planning
+      Header
+        -Logo
+        -Nav items(right side)
+        -cart
+      Body
+        -Search Bar
+        - Restaurant list
+          -Restaurant card
+            -Image
+            -Nam
+            -Rating
+            -Tag
+      footer
+       -links
+       -Copyrights
+*/
+
+-> 
