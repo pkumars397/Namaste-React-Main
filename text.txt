@@ -16,4 +16,34 @@
        -Copyrights
 */
 
--> 
+1.)What is the difference between
+Named
+Export,
+Default
+export and
+* as
+export?
+
+- In React ,we export modules or variables ,functioonal components to use in other part of our code or other module or code file.
+-Named Export -we seperately export variables ,functions or classes using named export,we can export multiple values from a module.
+- each names should be unique and imported using name of the exported item and inside the curly braces.
+
+-Default Export - u want to export only one variable or main funciton from a module then ,we use default export.
+-We can import it using any name without curly braces.
+
+-* as obj > allow to import all exports from a module using * as someName.and later we can use this object to use any of our export.
+
+2.)What is the importance of config.js file
+- we use it for keep our code more readable and maintainable using all the constant thing in this file and then do named export to use it in other modules or code file.
+- A config.js file, often named something like config.js or config.json, is a common practice in software development to store configuration settings and parameters for an application.
+- it gives security to our app,like some sensitive data can be hide ,like API key,DB credentials.
+
+3.)What are React Hooks?
+- React Hooks are functions that allow you to use state and other React features in function components.
+- they were introduced in React 16.8 to manage state in function components.
+- They make it easier to reuse stateful logic across components.
+
+4.) Why do we need a
+useState
+Hook?
+- The useState Hook is an essential part of React Hooks, and it serves a crucial role in functional components by allowing them to manage and update local state.
