@@ -5,6 +5,10 @@
   border: 1px solid black;
 }
 
+img {
+  width: 150px;
+  height: 80px;
+}
 .nav-items > ul {
   list-style-type: none;
   display: flex;
