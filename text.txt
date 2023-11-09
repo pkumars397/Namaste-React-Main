@@ -112,3 +112,63 @@ for i.g we take a state variable loggedIn,and we will show the Login component,w
 
 11.) What is the use of `const json = await data.json();` in getRestaurants()
 - The line of code const json = await data.json(); is used to parse and extract the JSON data from a response object received from an asynchronous operation, typically an HTTP request.
+
+Day9: 
+- useEffect - first component render then useEffect called.
+
+-Using the react-router-dom for routing.
+-create routes and based on route we redirect to that page.for creating the route ,import createBrowserRouter and then write the configuration inside it ,it is an type of function which takes the array as argument . 
+-RouterProvider is the component to load the page which is needed ,<RouterProvider route={appRoute}
+-react-router-dom provide Link name import ,for adding links and and don't refresh the page .
+-Outlet is provided which is component which renders the certain component based on route.
+-useParams for getting the url id of our route.
+
+1.)What are various ways to add images into our App? Explain with code examples
+- 1.) Inside HTML using <img scr="./img.jpeg" alt="Image" />
+- 2.) Using img inside our JSX in React.
+     const Component=()=>{
+      return (
+        <div><img src="" alt=""/></div>   
+      )
+     }
+- 3.) using import inside React app.
+   import Logo from "./components/assests/logo.jpeg"
+   and use it in react component.
+   const Component=()=>{
+    return (
+      <div>
+      <img src={Logo}/>
+      </div>
+    )
+   }
+- 4.) Using You can set the background image of an element using CSS.
+    const Component=()=>{
+      const styleImg={
+        backgroundImage:`url("")`,
+        backgroundSize:"cover"
+      }
+      return (
+        <div>
+        <img styleImg={style}/>
+        </div>
+      )
+    }
+
+2.) What would happen if we do console.log(useState())?
+- it will return a array with two element,first one is the current state value and second one is to update the state value.
+  const [state,setState]=useState();
+
+3.) How will useEffect behave if we don't add a dependency array ?
+- If we don't add dependency array the it will run the effect every time after render.and it can go to infinite loops and a lot of API call and all.so we always provide the array as dependency.if array is empty then it will only run the effect after the initial render.
+
+4.)What is SPA?
+- SPA stands for Single Page Application. It's a type of web application or website that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from the server
+- In other words, the application's UI is updated dynamically as the user interacts with it, without requiring a full page reload.
+- it gives smooth exprience and good .commonly build using React ,Angular ,Vue.js etc ,these library provides tools for building the client side apps.
+
+5.)What is difference between Client Side Routing and Server Side Routing?
+- Client-side routing and server-side routing refer to different approaches in managing and handling the navigation and rendering of pages in a web application.
+- 1.) Client-side routing and server-side routing refer to different approaches in managing and handling the navigation and rendering of pages in a web application.
+- 2.) Navigation on the Client: In client-side routing, the navigation and page rendering are handled on the client side (in the browser). When a user clicks a link or enters a URL, JavaScript in the client-side framework or library (e.g., React, Vue, Angular) intercepts the request and updates the DOM to display the new content without a full page reload.
+- 3.) Fast and Responsive: Client-side routing provides a faster and more responsive user experience because only the necessary data is fetched from the server, and page transitions happen without reloading the entire page.
+- 4.) JavaScript Heavy: Client-side routing relies heavily on JavaScript to manage navigation and rendering. The initial loading of the application may take longer, especially for larger applications.

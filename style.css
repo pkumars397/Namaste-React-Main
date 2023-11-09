@@ -19,7 +19,7 @@ img {
 }
 
 .card {
-  width: 250px;
+  width: 450px;
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
@@ -27,10 +27,17 @@ img {
 
 .card > img {
   width: 100%;
-  height: 60%;
+  height: 50%;
 }
 
 .restraunt-List {
   display: flex;
   flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 450px;
+  height: 300px;
+  background-color: #494141;
+  margin: 10px;
 }
