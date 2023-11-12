@@ -8,7 +8,9 @@ import Contact from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
 import { Footer } from "./components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-
+// import { Profile } from "./components/Profile.js";
+import ProfileClassCompo from "./components/ProfileClass";
+// import ProfileFunctionalComponent from "./components/Profile";
 const AppLayout = () => {
   return (
     <React.Fragment>
@@ -32,6 +34,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        // children: [
+        //   {
+        //     path: "profile", // its parent/profile
+        //     element: <ProfileClassCompo />,
+        //   },
+        // ],
       },
       {
         path: "/contact",

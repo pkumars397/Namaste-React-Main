@@ -172,3 +172,33 @@ Day9:
 - 2.) Navigation on the Client: In client-side routing, the navigation and page rendering are handled on the client side (in the browser). When a user clicks a link or enters a URL, JavaScript in the client-side framework or library (e.g., React, Vue, Angular) intercepts the request and updates the DOM to display the new content without a full page reload.
 - 3.) Fast and Responsive: Client-side routing provides a faster and more responsive user experience because only the necessary data is fetched from the server, and page transitions happen without reloading the entire page.
 - 4.) JavaScript Heavy: Client-side routing relies heavily on JavaScript to manage navigation and rendering. The initial loading of the application may take longer, especially for larger applications.
+
+Day 10- 
+1.) How do you create Nested Routes react-router-dom cofiguration ?
+- by providing path to the children in which we want another child and giving element as child of that children.and then using outlet in the parent of that child .
+
+2.) What is the order of life cycle method calls in Class Based Components
+- order of Life cycle method inclass component : 
+1.)constructor method
+2.)then render 
+3.)componentDidMount
+4.)Re-Render 
+5.)ComponentWillUpdate
+6.)ComponentWillUnmount
+
+3.) Why do we use componentDidMount?
+- componentDidMount is a lifecycle method in React, a popular JavaScript library for building user interfaces. It is used to perform actions after a component has been rendered to the DOM (Document Object Model). Here's why it is used: 
+- useEffect Hook is introduced in functional component to do same thing ,like api call and all. it is more concise easier to understand.now componentDidMount is not used .
+
+4.) Why do we use componentWillUnmount? Show with example
+- componentWillUnmount is a lifecycle method in React that is used for performing cleanup or teardown operations just before a component is unmounted and removed from the DOM. 
+- It's important for situations where you need to clean up resources, event listeners, subscriptions, or anything else that was set up in the component's lifecycle.
+
+5.) Why do we use super(props) in constructor
+- In JavaScript, when you create a subclass (child class) that extends a superclass (parent class) using the class syntax, you use the super keyword to call the constructor of the parent class. The super(props) call in the constructor of a subclass is used for a specific purpose in the context of React and class-based components:
+
+6.) Why can't we have the callback function of useEffect async?
+- Because useEffect expect to return a undefined or a cleanup function .which is being trigged when unmount will happen from dom.
+- and async function always returns a promise ,so that is why we can't use async infront of our callback function.Otherwise it will disturb the behavior of the useEffect.
+-useEffect either can return nothing or a cleanup function.
+-that is why we can't use the async keyword at the front of the callback in useEffect.
