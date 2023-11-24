@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error.js";
-import About from "./components/About";
+// import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantDetails from "./components/RestaurantDetails";
 import { Footer } from "./components/Footer";
@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // import { Profile } from "./components/Profile.js";
 import ProfileClassCompo from "./components/ProfileClass";
 // import ProfileFunctionalComponent from "./components/Profile";
+const About = lazy(() => import("./components/About.js"));
 const AppLayout = () => {
   return (
     <React.Fragment>
@@ -33,7 +34,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        ),
         // children: [
         //   {
         //     path: "profile", // its parent/profile

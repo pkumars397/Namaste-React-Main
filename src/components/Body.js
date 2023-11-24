@@ -3,13 +3,9 @@ import { restaurantList } from "../config";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-const filterRestaurant = (searchTxt, restaurant) => {
-  const data = restaurant.filter((resto) =>
-    resto?.info?.name?.toLowerCase()?.includes(searchTxt?.toLowerCase())
-  );
-  return data;
-};
+import { filterRestaurant } from "../utils/helper";
+import Offline from "./Offline";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [allRestaurant, setAllRestaurant] = useState([]);
@@ -35,6 +31,12 @@ const Body = () => {
     );
   };
   //  Early rendering,stoping our component to render.(Conditional rendering)
+
+  // const isOnline = useOnline();
+  // // console.log(isOnline);
+  // if (!isOnline) {
+  //   return <Offline />;
+  // }
   if (!allRestaurant) return null;
 
   return allRestaurant?.length === 0 ? (

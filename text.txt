@@ -202,3 +202,20 @@ Day 10-
 - and async function always returns a promise ,so that is why we can't use async infront of our callback function.Otherwise it will disturb the behavior of the useEffect.
 -useEffect either can return nothing or a cleanup function.
 -that is why we can't use the async keyword at the front of the callback in useEffect.
+
+Day 11-
+
+Custom hook is used to make our code more readable and put are component logic to some custom hook and it is easy to maintain.
+
+-Lazy loading
+-Dynamic bundling 
+-on demand loading
+-dynamic import
+-code spliting
+
+=> only our app should load the required bundle which user is looking for ,we don't load all components bundles .which is called dynamic bundling or code spliting or dynamic import or lazy loading or Chunking or Dynamic bundling.
+
+=> Dynamic bundling used in large size application to keep our app lighter and faster.
+
+
+

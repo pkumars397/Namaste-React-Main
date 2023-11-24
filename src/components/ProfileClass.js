@@ -15,9 +15,9 @@ class Profile extends React.Component {
     // console.log(json);
     // this.setState({ userInfo: json });
     // console.log("Child-component did mount");
-    this.id = setInterval(() => {
-      console.log("setTimeOut in mount");
-    }, 1000);
+    // this.id = setInterval(() => {
+    //   console.log("setTimeOut in mount");
+    // }, 1000);
   }
 
   componentDidUpdate() {
