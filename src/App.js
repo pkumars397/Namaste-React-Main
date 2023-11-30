@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -10,15 +10,21 @@ import { Footer } from "./components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // import { Profile } from "./components/Profile.js";
 import ProfileClassCompo from "./components/ProfileClass";
+import Instamart from "./components/Instamart.js";
+import UserContext from "./utils/UserContext.js";
 // import ProfileFunctionalComponent from "./components/Profile";
 const About = lazy(() => import("./components/About.js"));
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Prashant Kumar",
+    email: "pkumars397@gmail.com",
+  });
   return (
-    <React.Fragment>
+    <UserContext.Provider value={{ user: user, setUser: setUser }}>
       <Header />
       <Outlet />
       <Footer />
-    </React.Fragment>
+    </UserContext.Provider>
   );
 };
 
@@ -53,6 +59,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantDetails />,
+      },
+      {
+        path: "/instamart",
+        element: <Instamart />,
       },
     ],
   },

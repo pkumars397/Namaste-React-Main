@@ -219,3 +219,74 @@ Custom hook is used to make our code more readable and put are component logic t
 
 
 
+Day 12-
+1.) Explore all the ways of writing css.
+
+- 1.) using external css
+  2.) inline css ,using props passing property object to sytle attribute.
+  3.)using scss : preprocessor scripting language that extends the functionality of normal css.adds features of defining variables ,nesting etc.
+  4.) using Material UI  
+  5.)using TailWind(beast)
+
+2.) How do we configure tailwind?
+- first install tailwind libarary and postcss via - npm i -D tailwind postcss
+ - npx tailwindcss init(intialize it)
+ - configure postcss , create .postcssrc and add content.
+  {
+    "plugins":{
+      "tailwind":{}
+    }
+  }
+
+- now edit tailwind.config.js file ,whichever file u want to apply css add file extension of that. 
+
+module.exports={
+  content:["./src/**/*.{html,js,jsx}"],
+  theme:{
+    extend:{},
+  },
+  plugins:[],
+}
+
+-now go to index.css and add 
+ @tailwind base;
+@tailwind components;
+@tailwind utilities; 
+
+3.)Why do we have .postcssrc file?
+- PostCSS is a tool for transforming CSS with JavaScript plugins.
+- By providing this configuration, Parcel understands how to process your CSS files using PostCSS according to your defined settings
+
+
+Day 13-
+Prop Drilling: suppose u have data in your parent component and u want to access it into grandChildren.so we pass the data into our child component.
+
+
+State Uplifting : lifting our state to parent for controling the behavior of our child components.It is not possible to change state for shiblings ,so we do state uplifting.
+
+
+React context: it is used for storing something in central space and then using them in our entire app ,by using useContext.
+hooks related to this is :- createContext,useContext. its helps us to avoid prop drilling.It is centeral data for all components.it is like useState for whole application.
+
+How to use that UserContext inside class component: simply use UserContext.consumer and inside that element use a function and parameter will take the value of the context and then return a jsx then.
+
+how to override the original value of the context data ,by real data. UserContext.Provider and pass a prop in which it will take the value from context and then we can update that value form realtime state value.
+
+
+1.) What is prop drilling?
+- Prop drilling refers to the process of passing down props (short for properties) through multiple levels of components in a React application, where intermediate components don’t actually use those props but only serve as a pathway to deliver the props to deeply nested child components that need them.
+
+2.) What is lifting the state up?
+- Overall, lifting state up is a pattern used in React to manage and share state across multiple components efficiently.
+-  It promotes better separation of concerns by keeping the state management logic in higher-level components while allowing child components to consume and modify the shared state through props.
+
+3.)What is Context Provider and Context Consumer?
+- In React, Context API provides a way to manage global state and share data or functionality between components without explicitly passing props through the component tree
+- The Context Provider is a component that provides the context to its descendants. It accepts a value prop and passes that value to all the descendant components within its tree.
+- The Context Consumer is a component used to access the context provided by the Context Provider. It allows components to subscribe to the context changes and access the context's value.
+
+- By using Context Provider and Context Consumer together, you can create a global state or context in one part of your application and allow other components to consume that context without the need for prop drilling. This is particularly useful for managing global state, themes, user authentication, localization, and other application-wide data or functionality.
+
+4.) If you don’t pass a value to the provider does it take the default value? 
+- null value.
+

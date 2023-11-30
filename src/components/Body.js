@@ -1,16 +1,18 @@
 import RestrauntCard from "./RestaurantCard";
 import { restaurantList } from "../config";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterRestaurant } from "../utils/helper";
 import Offline from "./Offline";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchTxt, setSearchTxt] = useState("");
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -37,7 +39,7 @@ const Body = () => {
   // if (!isOnline) {
   //   return <Offline />;
   // }
-  if (!allRestaurant) return null;
+  // if (!allRestaurant) return null;
 
   return allRestaurant?.length === 0 ? (
     <Shimmer />
@@ -46,7 +48,7 @@ const Body = () => {
       <div className="search-container">
         <input
           type="text"
-          className="search-text"
+          className="search-text bg-pink-50 py-1 mx-1 my-2 border-2	 border-solid border-red-300 focus:bg-green-200"
           value={searchTxt}
           placeholder="Search"
           onChange={(e) => {
@@ -54,15 +56,23 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="search-btn "
+          className="search-btn bg-lime-600 hover:bg-lime-500 p-1 rounded-sm text-white"
           onClick={() => {
             setFilteredRestaurant(filterRestaurant(searchTxt, allRestaurant));
           }}
         >
           Search
         </button>
+        <input
+          value={user.value}
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
+        ></input>
+        <input
+          value={user.value}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+        ></input>
       </div>
-      <div className="restraunt-List">
+      <div className="restraunt-List flex flex-wrap">
         {filteredRestaurant.map((resto) => {
           return (
             <Link to={"./restaurant/" + resto?.info?.id} key={resto?.info?.id}>
