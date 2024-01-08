@@ -290,3 +290,80 @@ how to override the original value of the context data ,by real data. UserContex
 4.) If you don’t pass a value to the provider does it take the default value? 
 - null value.
 
+Day 13: (Lets build our store.)
+-Context is central place ,any component in our app can access our context and modify it also.
+
+-to manage our data properply ,we can create a redux store.instead of creating multiple contexts.
+
+-redux is a library to manage our app,the major problem with the redux is that very complex to setUp.Tough to learn redux.
+
+-If your app is very small you don't need redux.It is only needed when building large scale app.
+
+-for full fledge react app ,we don't only need react lib,we will be using different library i.e bundler ,react-router-dom etc.
+
+- To avoid complexity to setup redux store,redux introduced redux-toolkit.
+
+What Redux toolkit solves:
+1.) configuration of redux store is too complicated.
+2.)add too many packages to get redux to do useful thing.
+3.)redux requires too much boilerplate code.
+
+- What is Redux store at the end of the day?
+=> redux store is big object at the end of day.
+
+- all components in app can access our redux store.
+
+- state & props tied to its components.Context is like a big object,can access from anywhere in our app.
+
+- we make slices in our redux object ,portion of our store. i.e cart slice,user slice etc.  
+
+-to update the slice ,i have to dispatch an action.
+
+-various jargans;- slice,dispatch,store etc.
+
+- dispatch an action ,which will a function and then modify our cart.
+
+- why i can't directly modify our store,when we build a large scale app,we neeed to keep track of everything.
+
+-data is source of truth ,so we don't want to directly modify our component.its good way.
+
+-we need a mechanism to properly modify our component.
+
+- if we click on add button ,we will dispatch an action and that will call reducer function and that function will update our slice of our redux store.
+
+- after update we can read data via selector,
+-selector is hook at the end of the day.(useSelector)
+
+-when reading from the slice store,then cart component is subscribe to the store.whenever store will be modify ,it will automatically update in UI.
+
+-we subscribe using a hook called useSelector.
+
+-cart component is subscribed to my cart slice store.
+
+- npm i reactjs@toolkit(core library)
+-npm i react-redux. (bridge between react and redux)
+
+ Created Store: 
+  1)createStore=>imported from reduxToolkit
+  2.)Provide my store to app => <Provider store={store}>Component comes from reactredux</Provider>
+  3.)CreateSlice => come from RTK.
+     name,intial state,
+     reducers:{actions:fn(state,action){
+      state=action.payload
+     }}
+
+  4.) Exporting: 
+
+  cartSlice={
+    actions:{
+      addItem,
+      removeItem,
+      clearItem
+    },
+    reducer:reducers
+  }
+  in this way redux slice created ,so that is why we are exporting like this.
+
+  export const {addItem,removeItem}=sliceName.actions
+  export default sliceName.reducer (important reducer (its a big object))
+

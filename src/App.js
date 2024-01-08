@@ -14,17 +14,21 @@ import Instamart from "./components/Instamart.js";
 import UserContext from "./utils/UserContext.js";
 // import ProfileFunctionalComponent from "./components/Profile";
 const About = lazy(() => import("./components/About.js"));
+import { Provider } from "react-redux";
+import store from "./utils/store.js";
 const AppLayout = () => {
   const [user, setUser] = useState({
     name: "Prashant Kumar",
     email: "pkumars397@gmail.com",
   });
   return (
-    <UserContext.Provider value={{ user: user, setUser: setUser }}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
